@@ -1,4 +1,3 @@
-
 // Retorna o nome do pet em letras maiúsculas
 export function geradorDeTagsDeIdentificacao(nome) {
   return nome.toUpperCase();
