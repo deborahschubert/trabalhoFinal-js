@@ -1,0 +1,16 @@
+{
+  "name": "trabalhofinal",
+  "version": "1.0.0",
+  "main": "testes.js",
+  "type": "module",
+  "scripts": {
+  "test": "mocha --extension js testes.js"
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "mocha": "^11.5.0"
+  }
+}
