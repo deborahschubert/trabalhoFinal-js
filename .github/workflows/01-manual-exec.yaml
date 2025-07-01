@@ -38,4 +38,4 @@ jobs:
 
       # executar os testes
        - name: Executando Testes
-         run: yarn run tests
+         run: yarn run test
