@@ -1,0 +1,43 @@
+# CI de Nível 01 - Disparo manual a partir de 1 clique
+
+# Nome do nosso 'Pipeline'
+name: 'Execução Manual'
+
+# Regras de disparo (gatilhos/triggers)
+# Gatilhod e execução manual = workflow_dispatch
+
+on:
+  workflow_dispatch:
+
+# Trabalhos/tarefas dentro do pipeline = jobs
+jobs:
+  e2e-tests:
+    # Nome do trabalho
+    name: 'Execução de Testes E2E'
+
+    # Execução em um container Docker (https://github.com/actions/runner-images)
+    runs-on: ubuntu-latest
+
+    # Passos do script de build
+    steps:
+      # Clone do projeto (https://github.com/marketplace/actions/checkout)
+      - name: 'Clone do repositório'
+        uses: actions/checkout@v4
+
+      # Instalação do Node.js
+      - name: 'Instalação do Node.js'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+
+      # Instalação do Yarn
+      - name: 'Instalação do Yarn'
+        run: npm install --global yarn
+
+      # Instalação das dependências do projeto
+      - name: 'Instalação das dependências do projeto'
+        run: yarn install
+
+      # Execução dos testes E2E
+      - name: 'Execução dos testes E2E'
+        run: yarn run e2e
